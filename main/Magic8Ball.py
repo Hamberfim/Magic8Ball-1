@@ -50,7 +50,23 @@ def main_loop():
     :returns: this is what is returned
     :raises keyError: raises an exception
     """
-    pass
+    print("Welcome to Magic 8 Ball! Please ask me a question!")
+
+    sentinel_value = 'exit'
+    user_input = ''
+    while (user_input != sentinel_value):
+        print("Type 'exit' to quit the program.")
+        user_input = input("What is your question? ")
+        if user_input.lower() == sentinel_value:
+            break
+        else:
+            #set int
+            #int_resp = get_random_number()
+            #txt_resp = convert_number_to_text(int_resp)
+            txt_resp = convert_number_to_text(get_random_number())
+            print(txt_resp)
+    print('Thanks for playing.')
+
 
     #sentinal value = true
     #let user ask a question
