@@ -21,5 +21,13 @@ class MyTestCase(unittest.TestCase):
     def test_second_response(self):
         self.assertEqual("It is decidedly so.", m8b.convert_number_to_text(1))
 
+    def test_throws_error(self):
+        with self.assertRaises(ValueError):
+            m8b.convert_number_to_text(21)
+
+    def test_throws_error_text(self):
+        with self.assertRaises(ValueError):
+            m8b.convert_number_to_text("21")
+
 if __name__ == '__main__':
     unittest.main()
