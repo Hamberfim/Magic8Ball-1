@@ -12,17 +12,14 @@ from main import Magic8Ball as m8b
 
 class MyTestCase(unittest.TestCase):
 
-    def test_return_value_type(self):
+    def test_first_response(self):
         #assertEqual( parameter1, parameter2)
             ## parameter1 == parameter2
         #assertEqual( "Expected Value or outcome", function_call(param3))
-        self.assertEqual(type(1), type(m8b.get_random_number()))
-    def test_return_greater_than_0(self):
-        self.assertGreater(m8b.get_random_number(),-1) # a > b
-        self.assertGreater(0,-1)
-    def test_return_less_than_20(self):
-        self.assertGreater(20,m8b.get_random_number())
-        self.assertGreater(20,19)
+        self.assertEqual("It is certain.", m8b.convert_number_to_text(0))
+
+    def test_second_response(self):
+        self.assertEqual("It is decidedly so.", m8b.convert_number_to_text(1))
 
 if __name__ == '__main__':
     unittest.main()
