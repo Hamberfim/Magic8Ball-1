@@ -9,6 +9,7 @@ as output.  The function is then called.
 import unittest
 import unittest.mock as mock
 from main import Magic8Ball as m8b
+from main import constants
 
 class MyTestCase(unittest.TestCase):
 
@@ -19,7 +20,11 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual("It is certain.", m8b.convert_number_to_text(0))
 
     def test_second_response(self):
-        self.assertEqual("It is decidedly so.", m8b.convert_number_to_text(1))
+        expected_value = "It is decidedly so."
+        self.assertEqual(expected_value, m8b.convert_number_to_text(1))
+        self.assertTrue(
+            m8b.convert_number_to_text(m8b.get_random_number())
+            in constants.Eight_Ball_Responses)
 
     def test_throws_error(self):
         with self.assertRaises(ValueError):
